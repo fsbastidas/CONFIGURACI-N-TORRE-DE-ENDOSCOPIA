@@ -1,38 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Configurador Torre Endoscópica</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Prueba imagen</title>
+  <style>
+    #torre {
+      width: 300px;
+      min-height: 300px;
+      border: 2px dashed gray;
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+    .modulo {
+      width: 100%;
+      display: block;
+    }
+  </style>
 </head>
 <body>
 
-<h1>Configurador de Torre Endoscópica</h1>
+  <h1>Prueba de imagen</h1>
 
-<div class="container">
+  <button onclick="setProcesador('EP-6000.png')">EP-6000</button>
+  <button onclick="setProcesador('VP-7000.png')">VP-7000</button>
 
-  <!-- TORRE -->
   <div id="torre"></div>
 
-  <!-- PANEL -->
-  <div class="panel">
+  <script>
+    function setProcesador(imgSrc) {
+      const torre = document.getElementById("torre");
+      torre.innerHTML = "";
 
-    <h3>Procesadora</h3>
-    <button onclick="setProcesador('EP-6000.png')">EP-6000</button>
-    <button onclick="setProcesador('VP-7000.png')">VP-7000</button>
+      const img = document.createElement("img");
+      img.src = imgSrc;
+      img.className = "modulo";
 
-    <h3>Periféricos</h3>
-    <button onclick="addEquipo('jw3.png')">Bomba JW-3</button>
-    <button onclick="addEquipo('gw100.png')">CO2 GW-100</button>
-    <button onclick="addEquipo('cadeye.png')">CadEye</button>
+      img.onload = function() {
+        console.log("Imagen cargada:", imgSrc);
+      };
 
-    <h3>Acciones</h3>
-    <button onclick="limpiarTorre()">Limpiar torre</button>
+      img.onerror = function() {
+        console.log("No se encontró la imagen:", imgSrc);
+        alert("No se encontró la imagen: " + imgSrc);
+      };
 
-  </div>
-
-</div>
-
-<script src="script.js"></script>
+      torre.appendChild(img);
+    }
+  </script>
 
 </body>
 </html>
