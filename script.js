@@ -1,7 +1,6 @@
 function setProcesador(imgSrc) {
   let torre = document.getElementById("torre");
 
-  // eliminar procesador anterior
   let existente = document.getElementById("procesador");
   if (existente) existente.remove();
 
@@ -10,7 +9,7 @@ function setProcesador(imgSrc) {
   img.id = "procesador";
   img.classList.add("modulo");
 
-  torre.prepend(img); // lo pone arriba
+  torre.prepend(img);
 }
 
 function addEquipo(imgSrc) {
