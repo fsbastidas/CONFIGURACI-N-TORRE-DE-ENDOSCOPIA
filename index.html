@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Torre Endoscópica</title>
+  <title>Configurador Torre Endoscópica</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,30 +11,22 @@
 <div class="container">
 
   <!-- TORRE -->
-  <div class="torre">
-
-    <div id="monitor" class="bloque">MONITOR</div>
-
-    <div id="procesador" class="bloque">FUENTE / PROCESADORA</div>
-
-    <div id="perifericos" class="bloque">PERIFÉRICOS</div>
-
-    <div id="perifericos2" class="bloque">PERIFÉRICOS</div>
-
-  </div>
+  <div id="torre"></div>
 
   <!-- PANEL -->
   <div class="panel">
 
-    <h3>Fuente / Procesadora</h3>
-    <button onclick="setProcesador('EP-6000')">EP-6000</button>
-    <button onclick="setProcesador('VP-7000')">VP-7000</button>
-    <button onclick="setProcesador('EP-8000')">EP-8000</button>
+    <h3>Procesadora</h3>
+    <button onclick="setProcesador('ep6000.png')">EP-6000</button>
+    <button onclick="setProcesador('vp7000.png')">VP-7000</button>
 
     <h3>Periféricos</h3>
-    <button onclick="addPeriferico('JW-3')">Bomba Irrigación</button>
-    <button onclick="addPeriferico('GW-100')">Bomba CO2</button>
-    <button onclick="addPeriferico('EX-1')">CadEye</button>
+    <button onclick="addEquipo('jw3.png')">Bomba JW-3</button>
+    <button onclick="addEquipo('gw100.png')">CO2 GW-100</button>
+    <button onclick="addEquipo('cadeye.png')">CadEye</button>
+
+    <h3>Acciones</h3>
+    <button onclick="limpiarTorre()">Limpiar torre</button>
 
   </div>
 
