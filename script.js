@@ -1,7 +1,8 @@
-function agregarImagen(src) {
-  let torre = document.getElementById("torre");
-  let img = document.createElement("img");
-  img.src = src;
-  img.classList.add("modulo");
-  torre.appendChild(img);
+function setProcesador(nombre) {
+  document.getElementById("procesador").innerText = nombre;
+}
+
+function addPeriferico(nombre) {
+  let bloque = document.getElementById("perifericos");
+  bloque.innerText += "\n" + nombre;
 }
