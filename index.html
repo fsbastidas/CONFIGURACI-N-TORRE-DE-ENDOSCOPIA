@@ -2,16 +2,21 @@
 <html>
 <head>
   <title>Torre Endoscópica</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Configurador de Torre</h1>
 
-  <button onclick="agregar('procesador')">Procesador</button>
-  <button onclick="agregar('fuente')">Fuente de luz</button>
-  <button onclick="agregar('monitor')">Monitor</button>
+<h1>Configurador de Torre</h1>
 
-  <ul id="torre"></ul>
+<div class="botones">
+  <button onclick="agregarImagen('procesador.png')">Procesador</button>
+  <button onclick="agregarImagen('fuente.png')">Fuente</button>
+  <button onclick="agregarImagen('monitor.png')">Monitor</button>
+</div>
 
-  <script src="script.js"></script>
+<div id="torre"></div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
