@@ -1,3 +1,14 @@
 body {
   font-family: Arial;
+  text-align: center;
+}
+
+#torre {
+  margin-top: 20px;
+}
+
+.modulo {
+  width: 200px;
+  display: block;
+  margin: 5px auto;
 }
