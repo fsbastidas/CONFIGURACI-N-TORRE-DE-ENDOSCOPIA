@@ -1,6 +1,7 @@
-function agregar(elemento) {
-  let lista = document.getElementById("torre");
-  let item = document.createElement("li");
-  item.textContent = elemento;
-  lista.appendChild(item);
+function agregarImagen(src) {
+  let torre = document.getElementById("torre");
+  let img = document.createElement("img");
+  img.src = src;
+  img.classList.add("modulo");
+  torre.appendChild(img);
 }
