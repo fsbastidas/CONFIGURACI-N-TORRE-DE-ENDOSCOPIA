@@ -18,12 +18,14 @@
       <button onclick="setProcesador('EP-8000.png')">EP-8000</button>
 
       <h2>Periféricos</h2>
-      <button onclick="addEquipo('JW-3.png')">Bomba de irrigación JW-3</button>
-      <button onclick="addEquipo('GW-100.png')">Bomba de CO2 GW-100</button>
-      <button onclick="addEquipo('EX-1.png')">CadEye EX-1</button>
-      <button onclick="addEquipo('SU-1.png')">Procesadora ultrasonido SU-1</button>
-      <button onclick="addEquipo('WT-4.png')">Tanque de agua WT-4 / WT-603</button>
-      <button onclick="addEquipo('WT-04G.png')">Tanque de agua con CO2 WT-04G / WT-604G</button>
+      <button onclick="addPeriferico('JW-3.png')">Bomba de irrigación JW-3</button>
+      <button onclick="addPeriferico('GW-100.png')">Bomba de CO2 GW-100</button>
+      <button onclick="addPeriferico('EX-1.png')">CadEye EX-1</button>
+      <button onclick="addPeriferico('SU-1.png')">Procesadora ultrasonido SU-1</button>
+
+      <h2>Tanques</h2>
+      <button onclick="setTanque('WT-4.png')">Tanque de agua WT-4 / WT-603</button>
+      <button onclick="setTanque('WT-04G.png')">Tanque de agua con CO2 WT-04G / WT-604G</button>
 
       <h2>Endoscopios</h2>
       <button onclick="setEndoscopio('SERIE-500.png')">Serie 500</button>
@@ -55,20 +57,30 @@
                 <div class="placeholder">FUENTE DE LUZ / PROCESADORA</div>
               </div>
 
-              <div id="perifericoSlot1" class="shelf">
-                <div class="placeholder">PERIFÉRICOS</div>
+              <div id="perifericoSlot1" class="shelf shelf-doble">
+                <div class="doble-slot" id="per1a"><div class="placeholder small">PERIFÉRICO</div></div>
+                <div class="doble-slot" id="per1b"><div class="placeholder small">PERIFÉRICO</div></div>
               </div>
 
-              <div id="perifericoSlot2" class="shelf">
-                <div class="placeholder">PERIFÉRICOS</div>
+              <div id="perifericoSlot2" class="shelf shelf-doble">
+                <div class="doble-slot" id="per2a"><div class="placeholder small">PERIFÉRICO</div></div>
+                <div class="doble-slot" id="per2b"><div class="placeholder small">PERIFÉRICO</div></div>
               </div>
             </div>
 
             <div id="endoscopioSlot" class="endoscopios">
               <div class="vertical-text">ENDOSCOPIOS</div>
             </div>
+
+            <div id="tanqueSlot" class="tanques">
+              <div class="vertical-text">TANQUE</div>
+            </div>
           </div>
         </div>
+      </div>
+
+      <div class="ayuda">
+        Haz clic en un periférico ocupado para reemplazarlo.
       </div>
     </div>
 
