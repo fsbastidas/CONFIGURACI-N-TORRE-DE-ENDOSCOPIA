@@ -2,53 +2,78 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Prueba imagen</title>
-  <style>
-    #torre {
-      width: 300px;
-      min-height: 300px;
-      border: 2px dashed gray;
-      padding: 10px;
-      margin-top: 20px;
-    }
-
-    .modulo {
-      width: 100%;
-      display: block;
-    }
-  </style>
+  <title>Configurador Torre Endoscópica</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>Prueba de imagen</h1>
+  <h1>Configurador Torre Endoscópica</h1>
 
-  <button onclick="setProcesador('EP-6000.png')">EP-6000</button>
-  <button onclick="setProcesador('VP-7000.png')">VP-7000</button>
-  <button onclick="setProcesador('EP-8000.png')">EP-8000</button>
+  <div class="layout">
 
-  <div id="torre"></div>
+    <div class="panel">
+      <h2>Fuente de luz / Procesadora</h2>
+      <button onclick="setProcesador('EP-6000.png')">EP-6000</button>
+      <button onclick="setProcesador('VP-7000.png')">VP-7000</button>
+      <button onclick="setProcesador('EP-8000.png')">EP-8000</button>
 
-  <script>
-    function setProcesador(imgSrc) {
-      const torre = document.getElementById("torre");
-      torre.innerHTML = "";
+      <h2>Periféricos</h2>
+      <button onclick="addEquipo('JW-3.png')">Bomba de irrigación JW-3</button>
+      <button onclick="addEquipo('GW-100.png')">Bomba de CO2 GW-100</button>
+      <button onclick="addEquipo('EX-1.png')">CadEye EX-1</button>
+      <button onclick="addEquipo('SU-1.png')">Procesadora ultrasonido SU-1</button>
+      <button onclick="addEquipo('WT-4.png')">Tanque de agua WT-4 / WT-603</button>
+      <button onclick="addEquipo('WT-04G.png')">Tanque de agua con CO2 WT-04G / WT-604G</button>
 
-      const img = document.createElement("img");
-      img.src = imgSrc;
-      img.className = "modulo";
+      <h2>Endoscopios</h2>
+      <button onclick="setEndoscopio('SERIE-500.png')">Serie 500</button>
+      <button onclick="setEndoscopio('SERIE-600.png')">Serie 600</button>
+      <button onclick="setEndoscopio('SERIE-700.png')">Serie 700</button>
 
-      img.onload = function() {
-        console.log("Imagen cargada:", imgSrc);
-      };
+      <div class="acciones">
+        <button onclick="limpiarTorre()">Limpiar torre</button>
+      </div>
+    </div>
 
-      img.onerror = function() {
-        console.log("No se encontró la imagen:", imgSrc);
-        alert("No se encontró la imagen: " + imgSrc);
-      };
+    <div class="vista">
+      <div class="titulo-vista">Vista previa de la torre</div>
 
-      torre.appendChild(img);
-    }
-  </script>
+      <div class="torre-wrap">
+        <div class="torre">
+          <div class="etiqueta-superior">COCHE</div>
 
+          <div class="monitor-box">
+            <div class="slot-label">MONITOR</div>
+            <div id="monitorSlot" class="slot monitor-slot">
+              <div class="placeholder">Monitor</div>
+            </div>
+          </div>
+
+          <div class="rack-area">
+            <div class="rack-left">
+              <div id="procesadorSlot" class="shelf shelf-grande">
+                <div class="placeholder">FUENTE DE LUZ / PROCESADORA</div>
+              </div>
+
+              <div id="perifericoSlot1" class="shelf">
+                <div class="placeholder">PERIFÉRICOS</div>
+              </div>
+
+              <div id="perifericoSlot2" class="shelf">
+                <div class="placeholder">PERIFÉRICOS</div>
+              </div>
+            </div>
+
+            <div id="endoscopioSlot" class="endoscopios">
+              <div class="vertical-text">ENDOSCOPIOS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
