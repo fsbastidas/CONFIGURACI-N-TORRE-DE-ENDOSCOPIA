@@ -68,7 +68,7 @@ h1 {
 }
 
 .torre {
-  width: 520px;
+  width: 620px;
 }
 
 .etiqueta-superior {
@@ -96,6 +96,9 @@ h1 {
   height: 110px;
   border: 2px solid #444;
   background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .rack-area {
@@ -110,22 +113,42 @@ h1 {
 }
 
 .shelf {
-  height: 150px;
   border: 2px solid #444;
   border-top: none;
   background: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
 }
 
 .shelf-grande {
   height: 170px;
   border-top: 2px solid #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.endoscopios {
+.shelf-doble {
+  height: 150px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.doble-slot {
+  border-right: 1px solid #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.doble-slot:last-child {
+  border-right: none;
+}
+
+.endoscopios,
+.tanques {
   width: 90px;
   border: 2px solid #444;
   border-left: none;
@@ -136,6 +159,10 @@ h1 {
   align-items: center;
   min-height: 470px;
   overflow: hidden;
+}
+
+.tanques {
+  width: 110px;
 }
 
 .vertical-text {
@@ -153,6 +180,10 @@ h1 {
   padding: 10px;
 }
 
+.placeholder.small {
+  font-size: 14px;
+}
+
 .equipo-img {
   max-width: 92%;
   max-height: 92%;
@@ -166,7 +197,26 @@ h1 {
   margin-left: 8px;
 }
 
-@media (max-width: 1100px) {
+.tanque-img {
+  max-width: 82%;
+  max-height: 88%;
+  object-fit: contain;
+  margin-left: 8px;
+}
+
+.seleccionado-reemplazo {
+  outline: 4px solid #4a90e2;
+  outline-offset: -4px;
+}
+
+.ayuda {
+  text-align: center;
+  margin-top: 14px;
+  color: #555;
+  font-size: 14px;
+}
+
+@media (max-width: 1200px) {
   .layout {
     flex-direction: column;
   }
@@ -181,6 +231,6 @@ h1 {
 
   .torre {
     width: 100%;
-    max-width: 520px;
+    max-width: 620px;
   }
 }
