@@ -69,7 +69,7 @@ function setTanque(imgSrc) {
 
 function setEndoscopio(imgSrc) {
   const slot = document.getElementById("endoscopioSlot");
-  slot.innerHTML = '<div class="vertical-text">ENDOSCOPIOS</div>';
+  slot.innerHTML = '<div class="vertical-text">Endoscopio</div>';
 
   const img = crearImagen(imgSrc, "Endoscopio");
   img.classList.add("endoscopio-img");
