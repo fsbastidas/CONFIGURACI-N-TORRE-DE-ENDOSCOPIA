@@ -69,7 +69,7 @@ function setTanque(imgSrc) {
 
 function setEndoscopio(imgSrc) {
   const slot = document.getElementById("endoscopioSlot");
-  slot.innerHTML = '<div class="vertical-text">Endoscopio</div>';
+  slot.innerHTML = '<div class="vertical-text">ENDOSCOPIOS</div>';
 
   const img = crearImagen(imgSrc, "Endoscopio");
   img.classList.add("endoscopio-img");
@@ -94,7 +94,7 @@ function limpiarTorre() {
   });
 
   document.getElementById("endoscopioSlot").innerHTML =
-    '<div class="vertical-text">Endoscopio</div>';
+    '<div class="vertical-text">ENDOSCOPIOS</div>';
 
   document.getElementById("tanqueSlot").innerHTML =
     '<div class="vertical-text">TANQUE</div>';
