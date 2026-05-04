@@ -94,7 +94,7 @@ function limpiarTorre() {
   });
 
   document.getElementById("endoscopioSlot").innerHTML =
-    '<div class="vertical-text">ENDOSCOPIOS</div>';
+    '<div class="vertical-text">Endoscopio</div>';
 
   document.getElementById("tanqueSlot").innerHTML =
     '<div class="vertical-text">TANQUE</div>';
