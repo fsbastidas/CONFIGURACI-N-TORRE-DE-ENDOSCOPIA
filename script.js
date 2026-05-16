@@ -1,5 +1,87 @@
 let reemplazoPendiente = null;
 
+let serieSeleccionada = "";
+
+const endoscopios = {
+  "500": {
+    "GASTROSCOPIO": ["EG-590WR","EG-590ZW"],
+    "COLONOSCOPIO": ["EC-590WM","EC-590ZW/L"],
+    "DUODENOSCOPIO": ["ED-530XT"],
+    "BRONCOSCOPIO": ["EB-530S"],
+    "ECO GASTROSCOPIO": ["EG-538UT"]
+  },
+
+  "600": {
+    "GASTROSCOPIO": [
+      "EG-600WR"
+    ],
+    "COLONOSCOPIO": [
+      "EC-600WM"
+    ],
+    "DUODENOSCOPIO": [
+      "ED-600XT"
+    ],
+    "BRONCOSCOPIO": [
+      "EB-600WT"
+    ],
+    "ECO GASTROSCOPIO": [
+      "EG-580UT"
+    ]
+
+  },
+
+  "700": {
+
+    "GASTROSCOPIO": [
+      "EG-720R",
+      "EG-760R"
+    ],
+
+    "COLONOSCOPIO": [
+      "EC-760R-V/L"
+    ],
+
+    "DUODENOSCOPIO": [
+      "ED-580XT"
+    ],
+
+    "BRONCOSCOPIO": [
+      "EB-530XT"
+    ],
+
+    "ECO GASTROSCOPIO": [
+      "EG-580UR"
+    ]
+
+  },
+
+  "800": {
+
+    "GASTROSCOPIO": [
+      "EG-840T",
+      "EG-860R"
+    ],
+
+    "COLONOSCOPIO": [
+      "EC-860R-V/L"
+    ],
+
+    "DUODENOSCOPIO": [
+      "ED-580XT8"
+    ],
+
+    "BRONCOSCOPIO": [
+      "EB-800T"
+    ],
+
+    "ECO GASTROSCOPIO": [
+      "EG-740UT"
+    ]
+
+  }
+
+};
+
 function crearImagen(src, altText = "") {
   const img = document.createElement("img");
   img.src = src;
