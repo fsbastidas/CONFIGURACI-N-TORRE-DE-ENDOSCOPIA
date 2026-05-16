@@ -3,27 +3,51 @@ let reemplazoPendiente = null;
 let serieSeleccionada = "";
 
 const endoscopios = {
+
   "500": {
-    "GASTROSCOPIO": ["EG-590WR","EG-590ZW"],
-    "COLONOSCOPIO": ["EC-590WM","EC-590ZW/L"],
-    "DUODENOSCOPIO": ["ED-530XT"],
-    "BRONCOSCOPIO": ["EB-530S"],
-    "ECO GASTROSCOPIO": ["EG-538UT"]
+
+    "GASTROSCOPIO": [
+      "EG-590WR",
+      "EG-590ZW"
+    ],
+
+    "COLONOSCOPIO": [
+      "EC-590WM",
+      "EC-590ZW/L"
+    ],
+
+    "DUODENOSCOPIO": [
+      "ED-530XT"
+    ],
+
+    "BRONCOSCOPIO": [
+      "EB-530S"
+    ],
+
+    "ECO GASTROSCOPIO": [
+      "EG-530UT"
+    ]
+
   },
 
   "600": {
+
     "GASTROSCOPIO": [
       "EG-600WR"
     ],
+
     "COLONOSCOPIO": [
       "EC-600WM"
     ],
+
     "DUODENOSCOPIO": [
       "ED-600XT"
     ],
+
     "BRONCOSCOPIO": [
       "EB-600WT"
     ],
+
     "ECO GASTROSCOPIO": [
       "EG-580UT"
     ]
@@ -83,96 +107,225 @@ const endoscopios = {
 };
 
 function crearImagen(src, altText = "") {
+
   const img = document.createElement("img");
+
   img.src = src;
   img.alt = altText;
   img.className = "equipo-img";
+
   return img;
 }
 
 function setProcesador(imgSrc) {
+
   const slot = document.getElementById("procesadorSlot");
+
   slot.innerHTML = "";
-  slot.appendChild(crearImagen(imgSrc, "Procesadora"));
+
+  slot.appendChild(
+    crearImagen(imgSrc, "Procesadora")
+  );
 }
 
 function marcarSeleccionReemplazo(id) {
+
   limpiarMarcadoReemplazo();
+
   reemplazoPendiente = id;
+
   const slot = document.getElementById(id);
+
   slot.classList.add("seleccionado-reemplazo");
 }
 
 function limpiarMarcadoReemplazo() {
+
   ["per1a", "per1b", "per2a", "per2b"].forEach(id => {
-    document.getElementById(id).classList.remove("seleccionado-reemplazo");
+
+    document
+      .getElementById(id)
+      .classList
+      .remove("seleccionado-reemplazo");
+
   });
+
   reemplazoPendiente = null;
 }
 
 function ocuparSlotPeriferico(slotId, imgSrc) {
+
   const slot = document.getElementById(slotId);
+
   slot.innerHTML = "";
-  slot.appendChild(crearImagen(imgSrc, "Periférico"));
+
+  slot.appendChild(
+    crearImagen(imgSrc, "Periférico")
+  );
+
   slot.onclick = function () {
+
     marcarSeleccionReemplazo(slotId);
+
   };
 }
 
 function addPeriferico(imgSrc) {
-  const slots = ["per1a", "per1b", "per2a", "per2b"];
+
+  const slots = [
+    "per1a",
+    "per1b",
+    "per2a",
+    "per2b"
+  ];
 
   for (const id of slots) {
+
     const slot = document.getElementById(id);
+
     if (slot.querySelector(".placeholder")) {
+
       ocuparSlotPeriferico(id, imgSrc);
+
       limpiarMarcadoReemplazo();
+
       return;
     }
   }
 
   if (reemplazoPendiente) {
-    ocuparSlotPeriferico(reemplazoPendiente, imgSrc);
+
+    ocuparSlotPeriferico(
+      reemplazoPendiente,
+      imgSrc
+    );
+
     limpiarMarcadoReemplazo();
+
     return;
   }
 
-  alert("Los espacios de periféricos están llenos. Haz clic en uno de los periféricos para reemplazarlo.");
+  alert(
+    "Los espacios de periféricos están llenos. Haz clic en uno para reemplazarlo."
+  );
 }
 
 function setTanque(imgSrc) {
+
   const slot = document.getElementById("tanqueSlot");
-  slot.innerHTML = '<div class="vertical-text">TANQUE</div>';
+
+  slot.innerHTML =
+    '<div class="vertical-text">TANQUE</div>';
 
   const img = crearImagen(imgSrc, "Tanque");
+
   img.classList.add("tanque-img");
+
   slot.appendChild(img);
 }
 
 function setEndoscopio(imgSrc) {
-  const slot = document.getElementById("endoscopioSlot");
-  slot.innerHTML = '<div class="vertical-text">ENDOSCOPIOS</div>';
 
-  const img = crearImagen(imgSrc, "Endoscopio");
+  const slot =
+    document.getElementById("endoscopioSlot");
+
+  slot.innerHTML =
+    '<div class="vertical-text">ENDOSCOPIOS</div>';
+
+  const img =
+    crearImagen(imgSrc, "Endoscopio");
+
   img.classList.add("endoscopio-img");
+
   slot.appendChild(img);
 }
 
+function seleccionarSerie(serie) {
+
+  serieSeleccionada = serie;
+
+  document
+    .getElementById("menuEndoscopios")
+    .style.display = "block";
+
+  const tipoSelect =
+    document.getElementById("tipoEndoscopio");
+
+  tipoSelect.innerHTML =
+    '<option value="">Seleccione tipo</option>';
+
+  const tipos =
+    Object.keys(endoscopios[serie]);
+
+  tipos.forEach(tipo => {
+
+    tipoSelect.innerHTML +=
+      `<option value="${tipo}">${tipo}</option>`;
+
+  });
+
+  document.getElementById("modeloEndoscopio").innerHTML =
+    '<option value="">Seleccione modelo</option>';
+}
+
+function cargarModelos() {
+
+  const tipo =
+    document.getElementById("tipoEndoscopio").value;
+
+  const modeloSelect =
+    document.getElementById("modeloEndoscopio");
+
+  modeloSelect.innerHTML =
+    '<option value="">Seleccione modelo</option>';
+
+  if (!tipo) return;
+
+  const modelos =
+    endoscopios[serieSeleccionada][tipo];
+
+  modelos.forEach(modelo => {
+
+    modeloSelect.innerHTML +=
+      `<option value="${modelo}">${modelo}</option>`;
+
+  });
+}
+
+function seleccionarModelo() {
+
+  const modelo =
+    document.getElementById("modeloEndoscopio").value;
+
+  if (!modelo) return;
+
+  const imagen =
+    `${modelo}.png`;
+
+  setEndoscopio(imagen);
+}
+
 function limpiarTorre() {
+
   document.getElementById("procesadorSlot").innerHTML =
     '<div class="placeholder">FUENTE DE LUZ / PROCESADORA</div>';
 
   document.getElementById("per1a").innerHTML =
     '<div class="placeholder small">PERIFÉRICO</div>';
+
   document.getElementById("per1b").innerHTML =
     '<div class="placeholder small">PERIFÉRICO</div>';
+
   document.getElementById("per2a").innerHTML =
     '<div class="placeholder small">PERIFÉRICO</div>';
+
   document.getElementById("per2b").innerHTML =
     '<div class="placeholder small">PERIFÉRICO</div>';
 
   ["per1a", "per1b", "per2a", "per2b"].forEach(id => {
+
     document.getElementById(id).onclick = null;
+
   });
 
   document.getElementById("endoscopioSlot").innerHTML =
@@ -180,6 +333,15 @@ function limpiarTorre() {
 
   document.getElementById("tanqueSlot").innerHTML =
     '<div class="vertical-text">TANQUE</div>';
+
+  document.getElementById("menuEndoscopios").style.display =
+    "none";
+
+  document.getElementById("tipoEndoscopio").innerHTML =
+    '<option value="">Seleccione tipo</option>';
+
+  document.getElementById("modeloEndoscopio").innerHTML =
+    '<option value="">Seleccione modelo</option>';
 
   limpiarMarcadoReemplazo();
 }
