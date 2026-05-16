@@ -2,6 +2,10 @@ let reemplazoPendiente = null;
 
 let serieSeleccionada = "";
 
+/* =========================
+   BASE DE DATOS ENDOSCOPIOS
+========================= */
+
 const endoscopios = {
 
   "500": {
@@ -13,7 +17,7 @@ const endoscopios = {
 
     "COLONOSCOPIO": [
       "EC-590WM",
-      "EC-590ZW/L"
+      "EC-590ZW-L"
     ],
 
     "DUODENOSCOPIO": [
@@ -62,7 +66,7 @@ const endoscopios = {
     ],
 
     "COLONOSCOPIO": [
-      "EC-760R-V/L"
+      "EC-760R-V-L"
     ],
 
     "DUODENOSCOPIO": [
@@ -87,7 +91,7 @@ const endoscopios = {
     ],
 
     "COLONOSCOPIO": [
-      "EC-860R-V/L"
+      "EC-860R-V-L"
     ],
 
     "DUODENOSCOPIO": [
@@ -106,20 +110,30 @@ const endoscopios = {
 
 };
 
+/* =========================
+   CREAR IMAGEN
+========================= */
+
 function crearImagen(src, altText = "") {
 
   const img = document.createElement("img");
 
   img.src = src;
   img.alt = altText;
+
   img.className = "equipo-img";
 
   return img;
 }
 
+/* =========================
+   PROCESADORA
+========================= */
+
 function setProcesador(imgSrc) {
 
-  const slot = document.getElementById("procesadorSlot");
+  const slot =
+    document.getElementById("procesadorSlot");
 
   slot.innerHTML = "";
 
@@ -128,34 +142,43 @@ function setProcesador(imgSrc) {
   );
 }
 
+/* =========================
+   PERIFERICOS
+========================= */
+
 function marcarSeleccionReemplazo(id) {
 
   limpiarMarcadoReemplazo();
 
   reemplazoPendiente = id;
 
-  const slot = document.getElementById(id);
+  const slot =
+    document.getElementById(id);
 
-  slot.classList.add("seleccionado-reemplazo");
+  slot.classList.add(
+    "seleccionado-reemplazo"
+  );
 }
 
 function limpiarMarcadoReemplazo() {
 
-  ["per1a", "per1b", "per2a", "per2b"].forEach(id => {
+  ["per1a", "per1b", "per2a", "per2b"]
+    .forEach(id => {
 
-    document
-      .getElementById(id)
-      .classList
-      .remove("seleccionado-reemplazo");
+      document
+        .getElementById(id)
+        .classList
+        .remove("seleccionado-reemplazo");
 
-  });
+    });
 
   reemplazoPendiente = null;
 }
 
 function ocuparSlotPeriferico(slotId, imgSrc) {
 
-  const slot = document.getElementById(slotId);
+  const slot =
+    document.getElementById(slotId);
 
   slot.innerHTML = "";
 
@@ -181,7 +204,8 @@ function addPeriferico(imgSrc) {
 
   for (const id of slots) {
 
-    const slot = document.getElementById(id);
+    const slot =
+      document.getElementById(id);
 
     if (slot.querySelector(".placeholder")) {
 
@@ -210,19 +234,29 @@ function addPeriferico(imgSrc) {
   );
 }
 
+/* =========================
+   TANQUE
+========================= */
+
 function setTanque(imgSrc) {
 
-  const slot = document.getElementById("tanqueSlot");
+  const slot =
+    document.getElementById("tanqueSlot");
 
   slot.innerHTML =
     '<div class="vertical-text">TANQUE</div>';
 
-  const img = crearImagen(imgSrc, "Tanque");
+  const img =
+    crearImagen(imgSrc, "Tanque");
 
   img.classList.add("tanque-img");
 
   slot.appendChild(img);
 }
+
+/* =========================
+   ENDOSCOPIO
+========================= */
 
 function setEndoscopio(imgSrc) {
 
@@ -239,6 +273,10 @@ function setEndoscopio(imgSrc) {
 
   slot.appendChild(img);
 }
+
+/* =========================
+   SERIES
+========================= */
 
 function seleccionarSerie(serie) {
 
@@ -264,17 +302,27 @@ function seleccionarSerie(serie) {
 
   });
 
-  document.getElementById("modeloEndoscopio").innerHTML =
+  document.getElementById(
+    "modeloEndoscopio"
+  ).innerHTML =
     '<option value="">Seleccione modelo</option>';
 }
+
+/* =========================
+   CARGAR MODELOS
+========================= */
 
 function cargarModelos() {
 
   const tipo =
-    document.getElementById("tipoEndoscopio").value;
+    document.getElementById(
+      "tipoEndoscopio"
+    ).value;
 
   const modeloSelect =
-    document.getElementById("modeloEndoscopio");
+    document.getElementById(
+      "modeloEndoscopio"
+    );
 
   modeloSelect.innerHTML =
     '<option value="">Seleccione modelo</option>';
@@ -292,55 +340,109 @@ function cargarModelos() {
   });
 }
 
+/* =========================
+   SELECCIONAR MODELO
+========================= */
+
 function seleccionarModelo() {
 
   const modelo =
-    document.getElementById("modeloEndoscopio").value;
+    document.getElementById(
+      "modeloEndoscopio"
+    ).value;
 
   if (!modelo) return;
 
-  const imagen =
-    `${modelo}.png`;
+  /*
+    AUN NO TIENES IMAGENES
+    POR ESO SOLO MOSTRAREMOS
+    EL NOMBRE DEL MODELO
+  */
 
-  setEndoscopio(imagen);
+  const slot =
+    document.getElementById(
+      "endoscopioSlot"
+    );
+
+  slot.innerHTML = `
+    <div class="vertical-text">
+      ENDOSCOPIOS
+    </div>
+
+    <div style="
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 18px;
+      font-weight: bold;
+      color: #0b5394;
+      padding: 10px;
+      text-align: center;
+    ">
+      ${modelo}
+    </div>
+  `;
 }
+
+/* =========================
+   LIMPIAR
+========================= */
 
 function limpiarTorre() {
 
-  document.getElementById("procesadorSlot").innerHTML =
+  document.getElementById(
+    "procesadorSlot"
+  ).innerHTML =
     '<div class="placeholder">FUENTE DE LUZ / PROCESADORA</div>';
 
-  document.getElementById("per1a").innerHTML =
+  document.getElementById(
+    "per1a"
+  ).innerHTML =
     '<div class="placeholder small">PERIFÉRICO</div>';
 
-  document.getElementById("per1b").innerHTML =
+  document.getElementById(
+    "per1b"
+  ).innerHTML =
     '<div class="placeholder small">PERIFÉRICO</div>';
 
-  document.getElementById("per2a").innerHTML =
+  document.getElementById(
+    "per2a"
+  ).innerHTML =
     '<div class="placeholder small">PERIFÉRICO</div>';
 
-  document.getElementById("per2b").innerHTML =
+  document.getElementById(
+    "per2b"
+  ).innerHTML =
     '<div class="placeholder small">PERIFÉRICO</div>';
 
-  ["per1a", "per1b", "per2a", "per2b"].forEach(id => {
+  ["per1a", "per1b", "per2a", "per2b"]
+    .forEach(id => {
 
-    document.getElementById(id).onclick = null;
+      document.getElementById(id).onclick = null;
 
-  });
+    });
 
-  document.getElementById("endoscopioSlot").innerHTML =
+  document.getElementById(
+    "endoscopioSlot"
+  ).innerHTML =
     '<div class="vertical-text">ENDOSCOPIOS</div>';
 
-  document.getElementById("tanqueSlot").innerHTML =
+  document.getElementById(
+    "tanqueSlot"
+  ).innerHTML =
     '<div class="vertical-text">TANQUE</div>';
 
-  document.getElementById("menuEndoscopios").style.display =
-    "none";
+  document.getElementById(
+    "menuEndoscopios"
+  ).style.display = "none";
 
-  document.getElementById("tipoEndoscopio").innerHTML =
+  document.getElementById(
+    "tipoEndoscopio"
+  ).innerHTML =
     '<option value="">Seleccione tipo</option>';
 
-  document.getElementById("modeloEndoscopio").innerHTML =
+  document.getElementById(
+    "modeloEndoscopio"
+  ).innerHTML =
     '<option value="">Seleccione modelo</option>';
 
   limpiarMarcadoReemplazo();
