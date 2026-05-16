@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,308 +15,229 @@
 
 <body>
 
-  <h1>
-    CONFIGURACION TORRE DE ENDOSCOPIA
-  </h1>
+  <!-- =========================
+       LOGIN
+  ========================== -->
 
-  <div class="layout">
+  <div id="loginBox" class="login-box">
 
-    <!-- =========================
-         PANEL IZQUIERDO
-    ========================== -->
+    <h2>
+      Ingreso al Sistema
+    </h2>
 
-    <div class="panel">
+    <input
+      type="password"
+      id="passwordInput"
+      placeholder="Ingrese contraseña"
+    >
 
-      <!-- =========================
-           PROCESADORAS
-      ========================== -->
+    <button onclick="verificarClave()">
+      INGRESAR
+    </button>
 
-      <h2>
-        Fuente de luz / Procesadora
-      </h2>
+    <p id="errorLogin"></p>
 
-      <button onclick="setProcesador('EP-6000.png')">
-        EP-6000
-      </button>
+  </div>
 
-      <button onclick="setProcesador('VP-7000.png')">
-        VP-7000 / BL-7000
-      </button>
+  <!-- =========================
+       CONTENIDO PRINCIPAL
+  ========================== -->
 
-      <button onclick="setProcesador('EP-8000.png')">
-        EP-8000
-      </button>
+  <div
+    id="contenidoPagina"
+    style="display:none;"
+  >
 
-      <!-- =========================
-           PERIFERICOS
-      ========================== -->
+    <h1>
+      CONFIGURACION TORRE DE ENDOSCOPIA
+    </h1>
 
-      <h2>
-        Periféricos
-      </h2>
-
-      <button onclick="addPeriferico('JW-3.png')">
-        BOMBA DE IRRIGACION (JW-3)
-      </button>
-
-      <button onclick="addPeriferico('GW-100.png')">
-        BOMBA DE CO2 (GW-100)
-      </button>
-
-      <button onclick="addPeriferico('EX-1.png')">
-        CADEYE (EX-1)
-      </button>
-
-      <button onclick="addPeriferico('SU-1.png')">
-        PROCESADORA DE ULTRASONIDO (SU-1)
-      </button>
+    <div class="layout">
 
       <!-- =========================
-           TANQUES
+           PANEL IZQUIERDO
       ========================== -->
 
-      <h2>
-        Tanque de Agua
-      </h2>
+      <div class="panel">
 
-      <button onclick="setTanque('WT-603.png')">
-        TANQUE DE AGUA (WT-603)
-      </button>
+        <!-- =========================
+             PROCESADORAS
+        ========================== -->
 
-      <button onclick="setTanque('WT-604G.png')">
-        TANQUE DE AGUA CO2 (WT-604G)
-      </button>
+        <h2>
+          Fuente de luz / Procesadora
+        </h2>
 
-      <button onclick="setTanque('WT-4.png')">
-        TANQUE DE AGUA (WT-4)
-      </button>
-
-      <button onclick="setTanque('WT-04G.png')">
-        TANQUE DE AGUA CO2 (WT-04G)
-      </button>
-
-      <!-- =========================
-           ENDOSCOPIOS
-      ========================== -->
-
-      <h2>
-        Endoscopios
-      </h2>
-
-      <button onclick="seleccionarSerie('500')">
-        SERIE 500
-      </button>
-
-      <button onclick="seleccionarSerie('600')">
-        SERIE 600
-      </button>
-
-      <button onclick="seleccionarSerie('700')">
-        SERIE 700
-      </button>
-
-      <button onclick="seleccionarSerie('800')">
-        SERIE 800
-      </button>
-
-      <!-- =========================
-           MENU DESPLEGABLE
-      ========================== -->
-
-      <div
-        id="menuEndoscopios"
-        style="margin-top:15px; display:none;"
-      >
-
-        <select
-          id="tipoEndoscopio"
-          onchange="cargarModelos()"
-        >
-
-          <option value="">
-            Seleccione tipo
-          </option>
-
-        </select>
-
-        <select
-          id="modeloEndoscopio"
-          onchange="seleccionarModelo()"
-        >
-
-          <option value="">
-            Seleccione modelo
-          </option>
-
-        </select>
-
-      </div>
-
-      <!-- =========================
-           LIMPIAR
-      ========================== -->
-
-      <div class="acciones">
-
-        <button onclick="limpiarTorre()">
-          LIMPIAR TORRE
+        <button onclick="setProcesador('EP-6000.png')">
+          EP-6000
         </button>
 
+        <button onclick="setProcesador('VP-7000.png')">
+          VP-7000 / BL-7000
+        </button>
+
+        <button onclick="setProcesador('EP-8000.png')">
+          EP-8000
+        </button>
+
+        <!-- =========================
+             PERIFERICOS
+        ========================== -->
+
+        <h2>
+          Periféricos
+        </h2>
+
+        <button onclick="addPeriferico('JW-3.png')">
+          BOMBA DE IRRIGACION (JW-3)
+        </button>
+
+        <button onclick="addPeriferico('GW-100.png')">
+          BOMBA DE CO2 (GW-100)
+        </button>
+
+        <button onclick="addPeriferico('EX-1.png')">
+          CADEYE (EX-1)
+        </button>
+
+        <button onclick="addPeriferico('SU-1.png')">
+          PROCESADORA DE ULTRASONIDO (SU-1)
+        </button>
+
+        <!-- =========================
+             TANQUES
+        ========================== -->
+
+        <h2>
+          Tanque de Agua
+        </h2>
+
+        <button onclick="setTanque('WT-603.png')">
+          TANQUE DE AGUA (WT-603)
+        </button>
+
+        <button onclick="setTanque('WT-604G.png')">
+          TANQUE DE AGUA CO2 (WT-604G)
+        </button>
+
+        <button onclick="setTanque('WT-4.png')">
+          TANQUE DE AGUA (WT-4)
+        </button>
+
+        <button onclick="setTanque('WT-04G.png')">
+          TANQUE DE AGUA CO2 (WT-04G)
+        </button>
+
+        <!-- =========================
+             ENDOSCOPIOS
+        ========================== -->
+
+        <h2>
+          Endoscopios
+        </h2>
+
+        <button onclick="seleccionarSerie('500')">
+          SERIE 500
+        </button>
+
+        <button onclick="seleccionarSerie('600')">
+          SERIE 600
+        </button>
+
+        <button onclick="seleccionarSerie('700')">
+          SERIE 700
+        </button>
+
+        <button onclick="seleccionarSerie('800')">
+          SERIE 800
+        </button>
+
+        <!-- =========================
+             MENU DESPLEGABLE
+        ========================== -->
+
+        <div
+          id="menuEndoscopios"
+          style="margin-top:15px; display:none;"
+        >
+
+          <select
+            id="tipoEndoscopio"
+            onchange="cargarModelos()"
+          >
+
+            <option value="">
+              Seleccione tipo
+            </option>
+
+          </select>
+
+          <select
+            id="modeloEndoscopio"
+            onchange="seleccionarModelo()"
+          >
+
+            <option value="">
+              Seleccione modelo
+            </option>
+
+          </select>
+
+        </div>
+
+        <!-- =========================
+             LIMPIAR
+        ========================== -->
+
+        <div class="acciones">
+
+          <button onclick="limpiarTorre()">
+            LIMPIAR TORRE
+          </button>
+
+        </div>
+
       </div>
 
-    </div>
+      <!-- =========================
+           VISTA TORRE
+      ========================== -->
 
-    <!-- =========================
-         VISTA TORRE
-    ========================== -->
+      <div class="vista">
 
-    <div class="vista">
+        <div class="titulo-vista">
+          Vista previa de la torre
+        </div>
 
-      <div class="titulo-vista">
-        Vista previa de la torre
-      </div>
+        <div class="torre-wrap">
 
-      <div class="torre-wrap">
+          <div class="torre">
 
-        <div class="torre">
+            <!-- =========================
+                 COCHE
+            ========================== -->
 
-          <!-- =========================
-               COCHE
-          ========================== -->
-
-          <div class="etiqueta-superior">
-            COCHE
-          </div>
-
-          <!-- =========================
-               MONITOR
-          ========================== -->
-
-          <div class="monitor-box">
-
-            <div class="slot-label">
-              MONITOR
+            <div class="etiqueta-superior">
+              COCHE
             </div>
 
-            <div
-              id="monitorSlot"
-              class="slot monitor-slot"
-            >
+            <!-- =========================
+                 MONITOR
+            ========================== -->
 
-              <div class="placeholder">
+            <div class="monitor-box">
+
+              <div class="slot-label">
                 MONITOR
               </div>
 
-            </div>
-
-          </div>
-
-          <!-- =========================
-               RACK
-          ========================== -->
-
-          <div class="rack-area">
-
-            <!-- =========================
-                 TANQUE
-            ========================== -->
-
-            <div
-              id="tanqueSlot"
-              class="tanques"
-            >
-
-              <div class="placeholder small"></div>
-
-              <div class="vertical-text">
-                TANQUE DE AGUA
-              </div>
-
-            </div>
-
-            <!-- =========================
-                 RACK CENTRAL
-            ========================== -->
-
-            <div class="rack-left">
-
-              <!-- =========================
-                   PROCESADORA
-              ========================== -->
-
               <div
-                id="procesadorSlot"
-                class="shelf shelf-grande"
+                id="monitorSlot"
+                class="slot monitor-slot"
               >
 
                 <div class="placeholder">
-                  FUENTE DE LUZ / PROCESADORA
-                </div>
-
-              </div>
-
-              <!-- =========================
-                   PERIFERICOS 1
-              ========================== -->
-
-              <div
-                id="perifericoSlot1"
-                class="shelf shelf-doble"
-              >
-
-                <div
-                  class="doble-slot"
-                  id="per1a"
-                >
-
-                  <div class="placeholder small">
-                    PERIFÉRICO
-                  </div>
-
-                </div>
-
-                <div
-                  class="doble-slot"
-                  id="per1b"
-                >
-
-                  <div class="placeholder small">
-                    PERIFÉRICO
-                  </div>
-
-                </div>
-
-              </div>
-
-              <!-- =========================
-                   PERIFERICOS 2
-              ========================== -->
-
-              <div
-                id="perifericoSlot2"
-                class="shelf shelf-doble"
-              >
-
-                <div
-                  class="doble-slot"
-                  id="per2a"
-                >
-
-                  <div class="placeholder small">
-                    PERIFÉRICO
-                  </div>
-
-                </div>
-
-                <div
-                  class="doble-slot"
-                  id="per2b"
-                >
-
-                  <div class="placeholder small">
-                    PERIFÉRICO
-                  </div>
-
+                  MONITOR
                 </div>
 
               </div>
@@ -325,19 +245,133 @@
             </div>
 
             <!-- =========================
-                 ENDOSCOPIOS
+                 RACK
             ========================== -->
 
-            <div
-              id="endoscopioSlot"
-              class="endoscopios"
-            >
+            <div class="rack-area">
 
-              <div class="vertical-text">
-                ENDOSCOPIOS
+              <!-- =========================
+                   TANQUE
+              ========================== -->
+
+              <div
+                id="tanqueSlot"
+                class="tanques"
+              >
+
+                <div class="placeholder small"></div>
+
+                <div class="vertical-text">
+                  TANQUE DE AGUA
+                </div>
+
               </div>
 
-              <div class="placeholder small"></div>
+              <!-- =========================
+                   RACK CENTRAL
+              ========================== -->
+
+              <div class="rack-left">
+
+                <!-- =========================
+                     PROCESADORA
+                ========================== -->
+
+                <div
+                  id="procesadorSlot"
+                  class="shelf shelf-grande"
+                >
+
+                  <div class="placeholder">
+                    FUENTE DE LUZ / PROCESADORA
+                  </div>
+
+                </div>
+
+                <!-- =========================
+                     PERIFERICOS 1
+                ========================== -->
+
+                <div
+                  id="perifericoSlot1"
+                  class="shelf shelf-doble"
+                >
+
+                  <div
+                    class="doble-slot"
+                    id="per1a"
+                  >
+
+                    <div class="placeholder small">
+                      PERIFÉRICO
+                    </div>
+
+                  </div>
+
+                  <div
+                    class="doble-slot"
+                    id="per1b"
+                  >
+
+                    <div class="placeholder small">
+                      PERIFÉRICO
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <!-- =========================
+                     PERIFERICOS 2
+                ========================== -->
+
+                <div
+                  id="perifericoSlot2"
+                  class="shelf shelf-doble"
+                >
+
+                  <div
+                    class="doble-slot"
+                    id="per2a"
+                  >
+
+                    <div class="placeholder small">
+                      PERIFÉRICO
+                    </div>
+
+                  </div>
+
+                  <div
+                    class="doble-slot"
+                    id="per2b"
+                  >
+
+                    <div class="placeholder small">
+                      PERIFÉRICO
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <!-- =========================
+                   ENDOSCOPIOS
+              ========================== -->
+
+              <div
+                id="endoscopioSlot"
+                class="endoscopios"
+              >
+
+                <div class="vertical-text">
+                  ENDOSCOPIOS
+                </div>
+
+                <div class="placeholder small"></div>
+
+              </div>
 
             </div>
 
@@ -345,46 +379,46 @@
 
         </div>
 
-      </div>
+        <!-- =========================
+             AYUDA
+        ========================== -->
 
-      <!-- =========================
-           AYUDA
-      ========================== -->
+        <div class="ayuda">
 
-      <div class="ayuda">
+          Haz clic en un periférico ocupado
+          para reemplazarlo.
 
-        Haz clic en un periférico ocupado
-        para reemplazarlo.
+        </div>
 
-      </div>
+        <!-- =========================
+             TABLA CONFIGURACION
+        ========================== -->
 
-      <!-- =========================
-           TABLA CONFIGURACION
-      ========================== -->
+        <div class="config-box">
 
-      <div class="config-box">
+          <h2 id="tituloConfig">
+            CONFIGURACION TORRE
+          </h2>
 
-        <h2 id="tituloConfig">
-          CONFIGURACION TORRE
-        </h2>
+          <table id="tablaConfig">
 
-        <table id="tablaConfig">
+            <thead>
 
-          <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+              </tr>
 
-            <tr>
-              <th>Nombre</th>
-              <th>Marca</th>
-              <th>Modelo</th>
-            </tr>
+            </thead>
 
-          </thead>
+            <tbody id="configBody">
 
-          <tbody id="configBody">
+            </tbody>
 
-          </tbody>
+          </table>
 
-        </table>
+        </div>
 
       </div>
 
@@ -397,5 +431,4 @@
 </body>
 
 </html>
-```
 
