@@ -16,7 +16,6 @@ function verificarClave() {
     document.getElementById(
       "contenidoPagina"
     ).style.display = "block";
-
   }
 
   else {
@@ -25,7 +24,6 @@ function verificarClave() {
       "errorLogin"
     ).innerText =
       "Contraseña incorrecta";
-
   }
 }
 
