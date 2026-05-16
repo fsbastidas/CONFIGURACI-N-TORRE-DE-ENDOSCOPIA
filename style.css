@@ -250,3 +250,51 @@ h1 {
   border-radius: 8px;
   border: 1px solid #bfc7d1;
 }
+
+.config-box {
+
+  margin-top: 30px;
+
+  background: white;
+
+  border: 1px solid #d9dee5;
+
+  border-radius: 12px;
+
+  padding: 20px;
+
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.config-box h2 {
+
+  margin-top: 0;
+
+  margin-bottom: 15px;
+
+  font-size: 22px;
+}
+
+#tablaConfig {
+
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+#tablaConfig th,
+#tablaConfig td {
+
+  border: 1px solid #cfd6df;
+
+  padding: 10px;
+
+  text-align: left;
+
+  font-size: 14px;
+}
+
+#tablaConfig th {
+
+  background: #eef4ff;
+}
