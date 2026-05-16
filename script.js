@@ -222,16 +222,21 @@ function addPeriferico(imgSrc) {
 
     if (slot.querySelector(".placeholder")) {
 
-      ocuparSlotPeriferico(id, imgSrc);
+      ocuparSlotPeriferico(
+        id,
+        imgSrc
+      );
 
       limpiarMarcadoReemplazo();
 
-       const modelo =
+      const modelo =
         imgSrc.replace(".png", "");
+
       agregarConfiguracion(
         "Periférico",
         modelo
-         );
+      );
+
       return;
     }
   }
@@ -243,6 +248,14 @@ function addPeriferico(imgSrc) {
       imgSrc
     );
 
+    const modelo =
+      imgSrc.replace(".png", "");
+
+    agregarConfiguracion(
+      "Periférico",
+      modelo
+    );
+
     limpiarMarcadoReemplazo();
 
     return;
@@ -252,7 +265,6 @@ function addPeriferico(imgSrc) {
     "Los espacios de periféricos están llenos. Haz clic en uno para reemplazarlo."
   );
 }
-
 /* =========================
    TANQUE
 ========================= */
