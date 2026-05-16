@@ -141,7 +141,19 @@ function setProcesador(imgSrc) {
   slot.appendChild(
     crearImagen(imgSrc, "Procesadora")
   );
-}
+   const modelo =
+       imgSrc.replace(".png", "");
+   
+     agregarConfiguracion(
+       "Procesadora",
+       modelo
+     );
+   
+     document.getElementById(
+       "tituloConfig"
+     ).innerText =
+       `CONFIGURACION TORRE ${modelo}`;
+   }
 
 /* =========================
    PERIFERICOS
@@ -214,6 +226,12 @@ function addPeriferico(imgSrc) {
 
       limpiarMarcadoReemplazo();
 
+       const modelo =
+        imgSrc.replace(".png", "");
+      agregarConfiguracion(
+        "Periférico",
+        modelo
+         );
       return;
     }
   }
@@ -253,6 +271,12 @@ function setTanque(imgSrc) {
   img.classList.add("tanque-img");
 
   slot.appendChild(img);
+   const modelo =
+  imgSrc.replace(".png", "");
+   agregarConfiguracion(
+     "Tanque de agua",
+     modelo
+   );
 }
 
 /* =========================
@@ -382,6 +406,11 @@ function seleccionarModelo() {
       ${modelo}
     </div>
   `;
+
+   agregarConfiguracion(
+     "Endoscopio",
+     modelo
+      );
 }
 
 /* =========================
@@ -447,6 +476,14 @@ function limpiarTorre() {
     '<option value="">Seleccione modelo</option>';
 
   limpiarMarcadoReemplazo();
+   configuracionActual = [];
+
+   actualizarTabla();
+
+   document.getElementById(
+     "tituloConfig"
+   ).innerText =
+     "CONFIGURACION TORRE";
 }
 
 
