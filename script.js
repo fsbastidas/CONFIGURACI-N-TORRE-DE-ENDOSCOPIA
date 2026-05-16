@@ -1,3 +1,34 @@
+const CLAVE_SISTEMA = "fujifilm123";
+
+function verificarClave() {
+
+  const clave =
+    document.getElementById(
+      "passwordInput"
+    ).value;
+
+  if (clave === CLAVE_SISTEMA) {
+
+    document.getElementById(
+      "loginBox"
+    ).style.display = "none";
+
+    document.getElementById(
+      "contenidoPagina"
+    ).style.display = "block";
+
+  }
+
+  else {
+
+    document.getElementById(
+      "errorLogin"
+    ).innerText =
+      "Contraseña incorrecta";
+
+  }
+}
+
 let reemplazoPendiente = null;
 
 let serieSeleccionada = "";
