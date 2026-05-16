@@ -2,6 +2,7 @@ let reemplazoPendiente = null;
 
 let serieSeleccionada = "";
 
+let configuracionActual = [];
 /* =========================
    BASE DE DATOS ENDOSCOPIOS
 ========================= */
@@ -446,4 +447,43 @@ function limpiarTorre() {
     '<option value="">Seleccione modelo</option>';
 
   limpiarMarcadoReemplazo();
+}
+
+
+function actualizarTabla() {
+
+  const body =
+    document.getElementById("configBody");
+
+  body.innerHTML = "";
+
+  configuracionActual.forEach(item => {
+
+    body.innerHTML += `
+      <tr>
+        <td>${item.nombre}</td>
+        <td>${item.marca}</td>
+        <td>${item.modelo}</td>
+      </tr>
+    `;
+
+  });
+}
+
+function agregarConfiguracion(nombre, modelo) {
+
+  configuracionActual =
+    configuracionActual.filter(
+      item => item.nombre !== nombre
+    );
+
+  configuracionActual.push({
+
+    nombre: nombre,
+    marca: "FUJIFILM",
+    modelo: modelo
+
+  });
+
+  actualizarTabla();
 }
