@@ -242,3 +242,11 @@ h1 {
     max-width: 620px;
   }
 }
+
+#menuEndoscopios select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #bfc7d1;
+}
