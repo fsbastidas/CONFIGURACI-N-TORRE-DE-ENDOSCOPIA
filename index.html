@@ -203,15 +203,33 @@
            VISTA TORRE
       ========================== -->
 
-      <div class="vista">
+<div class="vista">
 
-        <div class="titulo-vista">
-          Vista previa de la torre
-        </div>
+  <div class="titulo-vista">
+    Vista previa de la torre
+  </div>
 
-        <div class="torre-wrap">
+  <div class="zona-vista">
 
-          <div class="torre">
+    <div class="panel-acciones">
+
+      <button onclick="eliminarSeleccionado()">
+        ELIMINAR
+      </button>
+
+      <button onclick="descargarExcel()">
+        DESCARGAR EXCEL
+      </button>
+
+      <button onclick="descargarPDF()">
+        DESCARGAR PDF
+      </button>
+
+    </div>
+
+    <div class="torre-wrap">
+
+      <div class="torre">
 
             <!-- =========================
                  COCHE
@@ -378,6 +396,8 @@
           </div>
 
         </div>
+    
+    </div>
 
         <!-- =========================
              AYUDA
