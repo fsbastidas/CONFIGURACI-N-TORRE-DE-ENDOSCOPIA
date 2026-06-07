@@ -622,3 +622,109 @@ function agregarConfiguracion(nombre, modelo) {
 
   actualizarTabla();
 }
+
+function eliminarSeleccionado() {
+
+  if (!elementoSeleccionado) {
+
+    alert("Seleccione un equipo.");
+
+    return;
+  }
+
+  const slot =
+    document.getElementById(
+      elementoSeleccionado.id
+    );
+
+  switch (elementoSeleccionado.tipo) {
+
+    case "procesadora":
+
+      slot.innerHTML =
+        '<div class="placeholder">FUENTE DE LUZ / PROCESADORA</div>';
+
+      break;
+
+    case "tanque":
+
+      slot.innerHTML =
+        '<div class="vertical-text">TANQUE</div>';
+
+      break;
+
+    case "endoscopio":
+
+      slot.innerHTML =
+        '<div class="vertical-text">ENDOSCOPIOS</div>';
+
+      break;
+
+    case "periferico":
+
+      slot.innerHTML =
+        '<div class="placeholder small">PERIFÉRICO</div>';
+
+      break;
+  }
+
+  slot.classList.remove(
+    "equipo-seleccionado"
+  );
+
+  elementoSeleccionado = null;
+}
+
+async function descargarPDF() {
+
+  const { jsPDF } = window.jspdf;
+
+  const captura =
+    document.querySelector(".vista");
+
+  const canvas =
+    await html2canvas(captura);
+
+  const imgData =
+    canvas.toDataURL("image/png");
+
+  const pdf =
+    new jsPDF("landscape");
+
+  pdf.addImage(
+    imgData,
+    "PNG",
+    10,
+    10,
+    270,
+    150
+  );
+
+  pdf.save(
+    "Configuracion_Torre.pdf"
+  );
+}
+
+function descargarExcel() {
+
+  const wb =
+    XLSX.utils.book_new();
+
+  const ws =
+    XLSX.utils.table_to_sheet(
+      document.getElementById(
+        "tablaConfig"
+      )
+    );
+
+  XLSX.utils.book_append_sheet(
+    wb,
+    ws,
+    "Configuracion"
+  );
+
+  XLSX.writeFile(
+    wb,
+    "Configuracion_Torre.xlsx"
+  );
+}
