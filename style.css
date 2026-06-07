@@ -394,3 +394,9 @@ h1 {
 .panel-acciones button:hover {
   background: #eef4ff;
 }
+
+.equipo-seleccionado {
+  outline: 4px solid red;
+  outline-offset: -4px;
+}
+
