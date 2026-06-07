@@ -27,6 +27,8 @@ function verificarClave() {
   }
 }
 
+let elementoSeleccionado = null;
+
 let reemplazoPendiente = null;
 
 let serieSeleccionada = "";
@@ -182,6 +184,21 @@ function setProcesador(imgSrc) {
        "tituloConfig"
      ).innerText =
        `CONFIGURACION TORRE ${modelo}`;
+  slot.onclick = function() {
+
+  document
+    .querySelectorAll(".equipo-seleccionado")
+    .forEach(el =>
+      el.classList.remove("equipo-seleccionado")
+    );
+
+  slot.classList.add("equipo-seleccionado");
+
+  elementoSeleccionado = {
+    tipo: "procesadora",
+    id: "procesadorSlot"
+  };
+};
    }
 
 /* =========================
@@ -230,8 +247,18 @@ function ocuparSlotPeriferico(slotId, imgSrc) {
 
   slot.onclick = function () {
 
-    marcarSeleccionReemplazo(slotId);
+    document
+      .querySelectorAll(".equipo-seleccionado")
+      .forEach(el =>
+        el.classList.remove("equipo-seleccionado")
+      );
 
+    slot.classList.add("equipo-seleccionado");
+
+    elementoSeleccionado = {
+      tipo: "periferico",
+      id: slotId
+    };
   };
 }
 
@@ -318,6 +345,21 @@ function setTanque(imgSrc) {
      "Tanque de agua",
      modelo
    );
+  slot.onclick = function() {
+
+  document
+    .querySelectorAll(".equipo-seleccionado")
+    .forEach(el =>
+      el.classList.remove("equipo-seleccionado")
+    );
+
+  slot.classList.add("equipo-seleccionado");
+
+  elementoSeleccionado = {
+    tipo: "procesadora",
+    id: "procesadorSlot"
+  };
+};
 }
 
 /* =========================
@@ -452,6 +494,21 @@ function seleccionarModelo() {
      "Endoscopio",
      modelo
       );
+  slot.onclick = function() {
+
+  document
+    .querySelectorAll(".equipo-seleccionado")
+    .forEach(el =>
+      el.classList.remove("equipo-seleccionado")
+    );
+
+  slot.classList.add("equipo-seleccionado");
+
+  elementoSeleccionado = {
+    tipo: "tanque",
+    id: "tanqueSlot"
+  };
+};
 }
 
 /* =========================
