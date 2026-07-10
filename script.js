@@ -44,24 +44,40 @@ const endoscopios = {
 
     "GASTROSCOPIO": [
       "EG-590WR",
-      "EG-590ZW"
+      "EG-590ZW",
+      "EG-530WR",
+      "EG-530CT",
+      "EG-530D",
+      "EG-580RD",
+      "EG-580NW2"
     ],
 
     "COLONOSCOPIO": [
       "EC-590WM",
       "EC-590ZW-L"
+      "EC-530LP",
+      "EC-530DL",
+      "EC-530FL",
+      "EC-530WL3",
+      "EC-580RD/M,/L"
     ],
 
     "DUODENOSCOPIO": [
-      "ED-530XT"
+      "ED-530XT/XT8",
+      "ED-580XT",
+      "EI-580BT"
     ],
 
     "BRONCOSCOPIO": [
-      "EB-530S"
+      "EB-530US",
+      "EB-530P",
+      "EB-530XT",
+      "EB-580S",
+      "EB-580T"
     ],
 
     "ECO GASTROSCOPIO": [
-      "EG-530UT"
+      "EG-580UT\UR"
     ]
 
   },
@@ -69,48 +85,34 @@ const endoscopios = {
   "600": {
 
     "GASTROSCOPIO": [
-      "EG-600WR"
+      "EG-600WR",
+      "EG-600ZW"
     ],
 
     "COLONOSCOPIO": [
-      "EC-600WM"
+      "EC-600WM/WI/WL",
+      "EC-600ZW/M,/L"
     ],
-
-    "DUODENOSCOPIO": [
-      "ED-600XT"
-    ],
-
-    "BRONCOSCOPIO": [
-      "EB-600WT"
-    ],
-
-    "ECO GASTROSCOPIO": [
-      "EG-580UT"
-    ]
-
   },
 
   "700": {
 
     "GASTROSCOPIO": [
       "EG-720R",
-      "EG-760R"
+      "EG-760R",
+      "EG-760Z",
+      "EG-740N"
     ],
 
     "COLONOSCOPIO": [
-      "EC-760R-V-L"
-    ],
-
-    "DUODENOSCOPIO": [
-      "ED-580XT"
-    ],
-
-    "BRONCOSCOPIO": [
-      "EB-530XT"
+      "EC-760R-V-L",
+      "EC-760R-VM/VI/VL",
+      "EC-760ZP-VM/VL",
+      "EC-720RM/RI/RL"
     ],
 
     "ECO GASTROSCOPIO": [
-      "EG-580UR"
+      "EG-740UT"
     ]
 
   },
