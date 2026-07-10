@@ -54,7 +54,7 @@ const endoscopios = {
 
     "COLONOSCOPIO": [
       "EC-590WM",
-      "EC-590ZW-L"
+      "EC-590ZW-L",
       "EC-530LP",
       "EC-530DL",
       "EC-530FL",
