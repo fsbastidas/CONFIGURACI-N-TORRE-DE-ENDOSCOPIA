@@ -1,4 +1,4 @@
-const CLAVE_SISTEMA = "fujifilm123";
+const CLAVE_SISTEMA = "123";
 
 function verificarClave() {
 
